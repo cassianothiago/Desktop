@@ -1,10 +1,11 @@
 
+from typing import Optional
 from PySide6.QtWidgets import QApplication, QWidget, QPushButton, QMainWindow, QLabel
 from PySide6.QtCore import QSize
 import sys
 class MainWindow(QMainWindow):
-    def _init_(self):
-        super()._init_()
+    def __init__(self):
+        super().__init__()
         self.setWindowTitle("Exercício 2")
         self.button= QPushButton("Botão", self)
         self.button.setGeometry(190,10,100,70)

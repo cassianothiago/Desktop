@@ -4,7 +4,7 @@ import sys
 
 class MainWindow(QMainWindow):
     def _init_(self):
-        super()._init_()
+        super().__init__()
         self.setWindowTitle("Meu programa")
         self.setFixedSize(QSize(600,400))
         self.lbl=QLabel("Hello Word!")
