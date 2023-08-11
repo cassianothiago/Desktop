@@ -13,7 +13,7 @@ class MainWindow(QMainWindow):
         self.setFixedSize(800,400)
         
         self.button=QPushButton('Retangulo',self)
-        self.button.clicked.connect(self.)
+        self.button.clicked.connect(self)
         self.button.setGeometry(10,10,80,30)
         self.button2=QPushButton('Circulo',self)
         self.button2.clicked.connect(self.open_secundary_window)
