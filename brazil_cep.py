@@ -8,6 +8,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle('buscar cep')
+        
 enderero=brazilcep.get_address_from_cep('79041020')
 print(enderero)
 
