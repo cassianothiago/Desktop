@@ -1,0 +1,23 @@
+from typing import Optional
+from PySide6.QtWidgets import QApplication, QWidget,QMainWindow,QLabel,QPushButton
+from PySide6.QtCore import QSize,Qt
+from PySide6.QtGui import QPixmap
+import sys
+
+class Mainwindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        
+        self.setWindowTitle('janela de imagem')
+        
+        self.label=QLabel()
+        self.label.setPixmap(QPixmap('foto do git.png'))
+        self.label.setScaledContents(True)
+        self.label.setFixedSize(100,150)
+        self.setCentralWidget(self.label)
+        
+
+app=QApplication(sys.argv)
+w=Mainwindow()
+w.show()
+app.exec()
