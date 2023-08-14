@@ -19,7 +19,8 @@ class MainWindow(QMainWindow):
         numero1=int(self.digitar1.text())
         numero2=int(self.digitar2.text())
         soma=numero1+numero2
-        print(soma)
+        self.resultado.setText('resultado = {}'.format(str(soma)))
+    
         
 app = QApplication(sys.argv)
 w = MainWindow()
