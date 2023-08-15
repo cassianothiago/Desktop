@@ -26,13 +26,12 @@ class Mainwindow(QMainWindow):
         
         self.depositoS=QCheckBox('sim')
         self.depositoN=QCheckBox('não')
-        '''self.depositoS.setTristate(True)
-        layoutBox = QVBoxLayout()
-        layoutBox.addWidget(self.depositoS)
-        layoutBox.addWidget(self.depositoN)
-        containerBox = QWidget()
-        containerBox.setLayout(self.depositoS)
-        containerBox.setLayout(self.depositoN)'''
+        self.depositoS.stateChanged.connect(self.state)
+        self.depositoN.stateChanged.connect(self.state2)
+        self.label=QLabel()
+        
+    
+        
         
         self.valorDep=QLineEdit(self)
         
@@ -44,12 +43,23 @@ class Mainwindow(QMainWindow):
         pagina.addRow(self.pergunta)
         pagina.addRow(self.depositoS)
         pagina.addRow(self.depositoN)
+        pagina.addRow(self.label)
         pagina.addRow(self.valorDep)
         pagina.addRow(self.depositar)
         widgetFORmulario = QWidget()
         widgetFORmulario.setLayout(pagina)
         self.setCentralWidget(widgetFORmulario)
         
+        
+    def state(self,s):
+        if s == 2:
+            self.depositoN.deleteLater() 
+            
+    def state2(self, s):
+        if s == 2:
+            self.valorDep.setText('0')
+            self.depositoS.deleteLater()
+            
 app = QApplication(sys.argv)
 w = Mainwindow()
 w.show()
