@@ -53,8 +53,10 @@ class Mainwindow(QMainWindow):
         
     def state(self,s):
         if s == 2:
+            valor=(self.valorDep.text())
             self.depositoN.deleteLater() 
-            
+            valorDepInt=int(valor)
+            return valorDepInt
     def state2(self, s):
         if s == 2:
             self.valorDep.setText('0')
