@@ -8,8 +8,10 @@ class MainWindow(QMainWindow):
         self.button=QPushButton('somar',self)
         self.button.setGeometry(190,10,100,70)
         self.button.clicked.connect(self.imprimir)
+        
         self.resultado=QLabel(self)
         self.resultado.setGeometry(10,220,280,30)
+        
         self.digitar1=QLineEdit(self)
         self.digitar1.setGeometry(100,10,80,30)
         self.digitar2=QLineEdit(self)
