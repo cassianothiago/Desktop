@@ -25,16 +25,19 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(588, 600)
+        
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
         self.verticalLayout.setObjectName(u"verticalLayout")
+        
         self.frameprincipal = QFrame(self.centralwidget)
         self.frameprincipal.setObjectName(u"frameprincipal")
         self.frameprincipal.setStyleSheet(u"background-color: rgb(85, 255, 255);\n"
 "background-color: rgb(255, 255, 255);")
         self.frameprincipal.setFrameShape(QFrame.StyledPanel)
         self.frameprincipal.setFrameShadow(QFrame.Raised)
+        
         self.verticalLayout_4 = QVBoxLayout(self.frameprincipal)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.frameusuario = QFrame(self.frameprincipal)
