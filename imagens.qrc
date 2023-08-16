@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="imagens">
+    <file>foto do git.png</file>
+    <file>imagem.jpg</file>
+  </qresource>
+</RCC>

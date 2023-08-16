@@ -19,6 +19,7 @@ class Mainwindow(QMainWindow):
         self.setFixedSize(QSize(700,500))
         
         self.agencia=QLineEdit(self)
+        self.agenciaText = self.agencia.text()
         self.conta=QLineEdit(self)
         
         self.pergunta=QLabel('Deseja fazer deposito inicial?')
@@ -70,7 +71,7 @@ class Mainwindow(QMainWindow):
         
     def cadastrar_conta(self):
         self.abrir_conta.setText('Agência = {} \nConta = {} \nvalor = {}'
-        .format(self.agencia,self.conta,self.depositoInicial))   
+        .format(self.agencia.text,self.conta,self.depositoInicial))   
         
         
 app = QApplication(sys.argv)
