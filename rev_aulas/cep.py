@@ -35,8 +35,9 @@ class Mainwindow(QMainWindow):
         self.setCentralWidget(widget)
         
     def pesq_cep(self):
-        cep=brazilcep.get_address_from_cep(self.dgit_cep)
-        print(cep)
+        cep_text=self.dgit_cep(cep)
+        cep=brazilcep.get_address_from_cep(cep_text)
+        self.resposta=cep
 
 
 app = QApplication(sys.argv)

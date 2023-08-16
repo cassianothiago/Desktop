@@ -16,7 +16,7 @@ class Mainwindow(QMainWindow):
         super().__init__()
         
         self.setWindowTitle('Seu Banco')
-        self.setFixedSize(QSize(400,200))
+        self.setFixedSize(QSize(700,500))
         
         self.agencia=QLineEdit(self)
         self.conta=QLineEdit(self)
@@ -35,6 +35,9 @@ class Mainwindow(QMainWindow):
         self.depositoInicial=QLabel(self)
         
         self.depositar=QPushButton('Abrir conta',self)
+        self.depositar.clicked.connect(self.cadastrar_conta)
+        
+        self.abrir_conta=QLabel(self)
         
         pagina=QFormLayout(self)
         pagina.addRow('Agência = ',self.agencia)
@@ -45,6 +48,7 @@ class Mainwindow(QMainWindow):
         pagina.addRow('valor = ',self.valorDepInicial)
         pagina.addRow('total dep = ',self.depositoInicial)
         pagina.addRow(self.depositar)
+        pagina.addRow(self.abrir_conta)
         widgetFORmulario = QWidget()
         widgetFORmulario.setLayout(pagina)
         self.setCentralWidget(widgetFORmulario)
@@ -56,6 +60,7 @@ class Mainwindow(QMainWindow):
             valor=(self.valorDepInicial.text())
             self.depositoInicial.setText(valor)
             return valor
+        
     def state2(self, s):
         if s == 2:
             self.depositoS.deleteLater()
@@ -63,6 +68,9 @@ class Mainwindow(QMainWindow):
             self.depositoInicial.setText(valor)
             return valor
         
+    def cadastrar_conta(self):
+        self.abrir_conta.setText('Agência = {} \nConta = {} \nvalor = {}'
+        .format(self.agencia,self.conta,self.depositoInicial))   
         
         
 app = QApplication(sys.argv)
