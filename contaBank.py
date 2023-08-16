@@ -28,14 +28,13 @@ class Mainwindow(QMainWindow):
         self.depositoN=QCheckBox('não')
         self.depositoS.stateChanged.connect(self.state)
         self.depositoN.stateChanged.connect(self.state2)
-        self.label=QLabel()
         
-    
+
+        self.valorDepInicial=QLineEdit(self)
         
+        self.depositoInicial=QLabel(self)
         
-        self.valorDep=QLineEdit(self)
-        
-        self.depositar=QPushButton('Depositar',self)
+        self.depositar=QPushButton('Abrir conta',self)
         
         pagina=QFormLayout(self)
         pagina.addRow('Agência = ',self.agencia)
@@ -43,8 +42,8 @@ class Mainwindow(QMainWindow):
         pagina.addRow(self.pergunta)
         pagina.addRow(self.depositoS)
         pagina.addRow(self.depositoN)
-        pagina.addRow(self.label)
-        pagina.addRow(self.valorDep)
+        pagina.addRow('valor = ',self.valorDepInicial)
+        pagina.addRow('total dep = ',self.depositoInicial)
         pagina.addRow(self.depositar)
         widgetFORmulario = QWidget()
         widgetFORmulario.setLayout(pagina)
@@ -53,15 +52,19 @@ class Mainwindow(QMainWindow):
         
     def state(self,s):
         if s == 2:
-            valor=(self.valorDep.text())
             self.depositoN.deleteLater() 
-            valorDepInt=int(valor)
-            return valorDepInt
+            valor=(self.valorDepInicial.text())
+            self.depositoInicial.setText(valor)
+            return valor
     def state2(self, s):
         if s == 2:
-            self.valorDep.setText('0')
             self.depositoS.deleteLater()
-            
+            valor=(self.valorDepInicial.setText('0'))
+            self.depositoInicial.setText(valor)
+            return valor
+        
+        
+        
 app = QApplication(sys.argv)
 w = Mainwindow()
 w.show()
