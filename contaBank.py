@@ -1,15 +1,16 @@
-from typing import Optional
-from PySide6.QtWidgets import (
-    QApplication, QMainWindow, QFormLayout, QWidget, QLabel,
+
+from PySide6.QtWidgets import (QApplication, QMainWindow, QFormLayout, QWidget, QLabel,
     QRadioButton, QCheckBox, QLineEdit, QSpinBox, QDoubleSpinBox,
     QPushButton, QComboBox, QFontComboBox, QDateEdit, QDateTimeEdit,
     QLCDNumber, QProgressBar, QDial, QSlider,QLayout)
+
 from PySide6.QtCore import (Qt,QSize)
+
 from PySide6.QtGui import (QPalette,QColor)
+
 import sys
-from PySide6.QtWidgets import (
-    QApplication, QMainWindow, QLabel, QPushButton, QLabel, QLineEdit,
-    QVBoxLayout,QHBoxLayout)
+
+from PySide6.QtWidgets import (QApplication, QMainWindow, QLabel, QPushButton, QLabel, QLineEdit,QVBoxLayout,QHBoxLayout)
 
 class Mainwindow(QMainWindow):
     def __init__(self):
@@ -59,14 +60,14 @@ class Mainwindow(QMainWindow):
         if s == 2:
             self.depositoN.deleteLater() 
             valor=(self.valorDepInicial_Qline())
-            self.self.valor(valor)
+            self.valor(valor)
             return valor
         
     def state2(self, s):
         if s == 2:
             self.depositoS.deleteLater()
-            self.valorDepInicial_Qline==0
-            return self.valorDepInicial_Qline
+            valor=(self.valorDepInicial_Qline.text('0'))
+            return valor
         
     def cadastrar_conta(self):
         self.depositoN.deleteLater()  
