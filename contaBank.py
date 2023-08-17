@@ -3,7 +3,7 @@ from PySide6.QtWidgets import (
     QApplication, QMainWindow, QFormLayout, QWidget, QLabel,
     QRadioButton, QCheckBox, QLineEdit, QSpinBox, QDoubleSpinBox,
     QPushButton, QComboBox, QFontComboBox, QDateEdit, QDateTimeEdit,
-    QLCDNumber, QProgressBar, QDial, QSlider)
+    QLCDNumber, QProgressBar, QDial, QSlider,QLayout)
 from PySide6.QtCore import (Qt,QSize)
 from PySide6.QtGui import (QPalette,QColor)
 import sys
@@ -23,7 +23,7 @@ class Mainwindow(QMainWindow):
         self.conta=QLineEdit(self)
         
         self.pergunta=QLabel('Deseja fazer deposito inicial?')
-        
+    
         
         self.depositoS=QCheckBox('sim')
         self.depositoN=QCheckBox('não')
@@ -31,9 +31,9 @@ class Mainwindow(QMainWindow):
         self.depositoN.stateChanged.connect(self.state2)
         
 
-        self.valorDepInicial=QLineEdit(self)
+        self.valorDepInicial_Qline=QLineEdit(self)
         
-        self.depositoInicial=QLabel(self)
+        self.valorDepInicial_Qlabel=QLabel(self)
         
         self.depositar=QPushButton('Abrir conta',self)
         self.depositar.clicked.connect(self.cadastrar_conta)
@@ -46,8 +46,8 @@ class Mainwindow(QMainWindow):
         pagina.addRow(self.pergunta)
         pagina.addRow(self.depositoS)
         pagina.addRow(self.depositoN)
-        pagina.addRow('valor = ',self.valorDepInicial)
-        pagina.addRow('total dep = ',self.depositoInicial)
+        pagina.addRow('valor = ',self.valorDepInicial_Qline)
+        pagina.addRow('total dep = ',self.valorDepInicial_Qlabel)
         pagina.addRow(self.depositar)
         pagina.addRow(self.abrir_conta)
         widgetFORmulario = QWidget()
@@ -58,23 +58,23 @@ class Mainwindow(QMainWindow):
     def state(self,s):
         if s == 2:
             self.depositoN.deleteLater() 
-            valor=(self.valorDepInicial.text())
-            self.depositoInicial.setText(valor)
+            valor=(self.valorDepInicial_Qline())
+            self.self.valor(valor)
             return valor
         
     def state2(self, s):
         if s == 2:
             self.depositoS.deleteLater()
-            valor=(self.valorDepInicial.setText('0'))
-            self.depositoInicial.setText(valor)
-            return valor
+            self.valorDepInicial_Qline==0
+            return self.valorDepInicial_Qline
         
     def cadastrar_conta(self):
-        self.abrir_conta.setText('Agência = {} \nConta = {} \nvalor = {}'
-        .format(self.agencia.text,self.conta,self.depositoInicial))   
-        
+        self.depositoN.deleteLater()  
+        self.abrir_conta.setText('Agência = {}\nConta = {}\nValor = {}'
+        .format(self.agencia.text(), self.conta.text(), self.valorDepInicial_Qline.text()))
         
 app = QApplication(sys.argv)
 w = Mainwindow()
 w.show()
 app.exec()
+sys.exit(app.exec_())
