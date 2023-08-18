@@ -54,7 +54,8 @@ class Mainwindow(QMainWindow):
             self.depositoInicial.setText('0')
         
     def cadastrar_conta(self):
-        self.abrir_conta.setText('Agência = {}\nConta = {}\nValor = {}'.format(self.agencia.text(), self.conta.text(), self.depositoInicial.text()))
+        self.abrir_conta.setText('Agência = {}\nConta = {}\nValor = {}'
+        .format(self.agencia.text(), self.conta.text(), self.depositoInicial.text()))
         
 app = QApplication(sys.argv)
 w = Mainwindow()

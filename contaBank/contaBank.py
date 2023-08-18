@@ -1,16 +1,13 @@
 
-from PySide6.QtWidgets import (QApplication, QMainWindow, QFormLayout, QWidget, QLabel,
-    QRadioButton, QCheckBox, QLineEdit, QSpinBox, QDoubleSpinBox,
-    QPushButton, QComboBox, QFontComboBox, QDateEdit, QDateTimeEdit,
-    QLCDNumber, QProgressBar, QDial, QSlider,QLayout)
 
-from PySide6.QtCore import (Qt,QSize)
 
-from PySide6.QtGui import (QPalette,QColor)
+from PySide6.QtCore import (QSize)
+
 
 import sys
 
-from PySide6.QtWidgets import (QApplication, QMainWindow, QLabel, QPushButton, QLabel, QLineEdit,QVBoxLayout,QHBoxLayout)
+from PySide6.QtWidgets import (QApplication, QMainWindow, QLabel, QPushButton, QLabel, QLineEdit,
+QCheckBox,QFormLayout,QWidget)
 
 class Mainwindow(QMainWindow):
     def __init__(self):
@@ -35,9 +32,11 @@ class Mainwindow(QMainWindow):
         
         ##linha para digitar o valor do dep inicial##
         self.valorDepInicial_Qline=QLineEdit(self)
+        self.totaldep=self.valorDepInicial_Qline.text()
         
         ##label para mostrar o valor digitado 
-        self.valorDepInicial_Qlabel=QLabel(self.valorDepInicial_Qline)
+        self.valorDepInicial_Qlabel=QLabel()
+        
         
         #botão para abrir a conta#
         self.abrirContaButton=QPushButton('Abrir conta',self)
@@ -54,8 +53,9 @@ class Mainwindow(QMainWindow):
         pagina.addRow(self.depositoS)
         pagina.addRow(self.depositoN)
         pagina.addRow('valor que deseja depositar = ',self.valorDepInicial_Qline)
-        pagina.addRow('total dep = ',self.valorDepInicial_Qlabel)
+        pagina.addRow('total dep = ',self.valorDepInicial_Qlabel.setText(self.totaldep))
         pagina.addRow(self.abrirContaButton)
+        pagina.addRow(self.registrarConta)
         widgetFORmulario = QWidget()
         widgetFORmulario.setLayout(pagina)
         self.setCentralWidget(widgetFORmulario)
@@ -70,16 +70,13 @@ class Mainwindow(QMainWindow):
     def state2(self, s):#se não tiver dep inicial#
         if s == 2:
             self.depositoS.deleteLater()
-            valor=(self.valorDepInicial_Qlabel.text('0'))
-            self.valorDepInicial_Qlabel=valor
+            self.valorDepInicial_Qline.setText('0')
+            self.valorDepInicial_Qlabel.setText('R$ 0,00')
         
     def cadastrar_conta(self):
-        pagina=QFormLayout
-        self.depositoN.deleteLater()
-        pagina.addRow('Abertura realizada com sucesso!!',self.registrarConta)  
-        self.registrarConta('Agência = {}\nConta = {}\nValor = {}'
-        .format(self.agencia.text(), self.conta.text(), self.valorDepInicial_Qlabel.text()))
-        
+        self.registrarConta.setText('Conta Aberta com sucesso!!!\nAgência = {}\nConta = {}\nValor = R$ {},00'
+        .format(self.agencia.text(), self.conta.text(), self.valorDepInicial_Qline.text()))
+
 app = QApplication(sys.argv)
 w = Mainwindow()
 w.show()
