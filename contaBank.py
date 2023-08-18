@@ -16,63 +16,69 @@ class Mainwindow(QMainWindow):
     def __init__(self):
         super().__init__()
         
+        ##titulo da janela##
         self.setWindowTitle('Seu Banco')
         self.setFixedSize(QSize(700,500))
         
+        ##linhas para digitar a agencia e conta##
         self.agencia=QLineEdit(self)
-        self.agenciaText = self.agencia.text()
         self.conta=QLineEdit(self)
         
+        ##label para perguntar se deseja deposito inicial##
         self.pergunta=QLabel('Deseja fazer deposito inicial?')
     
-        
+        ##chekbox para responder a pergunta do deposito inicial##
         self.depositoS=QCheckBox('sim')
         self.depositoN=QCheckBox('não')
         self.depositoS.stateChanged.connect(self.state)
         self.depositoN.stateChanged.connect(self.state2)
         
-
+        ##linha para digitar o valor do dep inicial##
         self.valorDepInicial_Qline=QLineEdit(self)
         
-        self.valorDepInicial_Qlabel=QLabel(self)
+        ##label para mostrar o valor digitado 
+        self.valorDepInicial_Qlabel=QLabel(self.valorDepInicial_Qline)
         
-        self.depositar=QPushButton('Abrir conta',self)
-        self.depositar.clicked.connect(self.cadastrar_conta)
+        #botão para abrir a conta#
+        self.abrirContaButton=QPushButton('Abrir conta',self)
+        self.abrirContaButton.clicked.connect(self.cadastrar_conta)
         
-        self.abrir_conta=QLabel(self)
+        #espaço que mostra os dados da conta
+        self.registrarConta=QLabel(self)
         
+        ##formatação dos Widgets##
         pagina=QFormLayout(self)
         pagina.addRow('Agência = ',self.agencia)
         pagina.addRow('Conta = ',self.conta)
         pagina.addRow(self.pergunta)
         pagina.addRow(self.depositoS)
         pagina.addRow(self.depositoN)
-        pagina.addRow('valor = ',self.valorDepInicial_Qline)
+        pagina.addRow('valor que deseja depositar = ',self.valorDepInicial_Qline)
         pagina.addRow('total dep = ',self.valorDepInicial_Qlabel)
-        pagina.addRow(self.depositar)
-        pagina.addRow(self.abrir_conta)
+        pagina.addRow(self.abrirContaButton)
         widgetFORmulario = QWidget()
         widgetFORmulario.setLayout(pagina)
         self.setCentralWidget(widgetFORmulario)
         
         
-    def state(self,s):
+    def state(self,s):#se tiver dep inicial#
         if s == 2:
             self.depositoN.deleteLater() 
-            valor=(self.valorDepInicial_Qline())
-            self.valor(valor)
-            return valor
+            valor=(self.valorDepInicial_Qline.text())
+            self.valorDepInicial_Qlabel=valor
         
-    def state2(self, s):
+    def state2(self, s):#se não tiver dep inicial#
         if s == 2:
             self.depositoS.deleteLater()
-            valor=(self.valorDepInicial_Qline.text('0'))
-            return valor
+            valor=(self.valorDepInicial_Qlabel.text('0'))
+            self.valorDepInicial_Qlabel=valor
         
     def cadastrar_conta(self):
-        self.depositoN.deleteLater()  
-        self.abrir_conta.setText('Agência = {}\nConta = {}\nValor = {}'
-        .format(self.agencia.text(), self.conta.text(), self.valorDepInicial_Qline.text()))
+        pagina=QFormLayout
+        self.depositoN.deleteLater()
+        pagina.addRow('Abertura realizada com sucesso!!',self.registrarConta)  
+        self.registrarConta('Agência = {}\nConta = {}\nValor = {}'
+        .format(self.agencia.text(), self.conta.text(), self.valorDepInicial_Qlabel.text()))
         
 app = QApplication(sys.argv)
 w = Mainwindow()
