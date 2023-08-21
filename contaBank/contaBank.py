@@ -7,6 +7,7 @@ QCheckBox,QFormLayout,QWidget)
 class Mainwindow(QMainWindow):
     def __init__(self):
         super().__init__()
+        self.lista=[]#saldo da conta
         
         ##titulo da janela##
         self.setWindowTitle('Seu Banco')
@@ -68,13 +69,12 @@ class Mainwindow(QMainWindow):
         pagina.addRow(self.depositoS)
         pagina.addRow(self.depositoN)
         pagina.addRow('valor que deseja depositar = ',self.valorDepInicial_Qline)
-        pagina.addRow('total dep = ',self.valorDepInicial_Qlabel.setText(self.totaldep))
         pagina.addRow(self.abrirContaButton)
         pagina.addRow(self.registrarConta)
         pagina.addRow('Valor do deposito = ',self.valor_Qline)
         pagina.addRow(self.depButton)
         pagina.addRow(self.valor_Qlabel)
-        pagina.addRow('valor do saque = ',self.sacar_Qline)
+        pagina.addRow('valor do saque(ATENÇÃO!! cobrança de R$ 5,00 por saque) = ',self.sacar_Qline)
         pagina.addRow(self.sacar_QButon)
         pagina.addRow(self.sacar_Qlabel)
         widgetFORmulario = QWidget()
@@ -85,17 +85,21 @@ class Mainwindow(QMainWindow):
     def state(self,s):#se tiver dep inicial#
         if s == 2:
             self.depositoN.deleteLater() 
-            valor=(self.valorDepInicial_Qline.text())
+            valor=self.valorDepInicial_Qline.text()
+            dep=int(valor)
+            self.lista.append(dep)
             self.valorDepInicial_Qlabel=valor
-        
+            
+            
     def state2(self, s):#se não tiver dep inicial#
         if s == 2:
             self.depositoS.deleteLater()
             self.valorDepInicial_Qline.setText('0')
             self.valorDepInicial_Qlabel.setText('R$ 0,00')
-        
+            self.lista.append(0)
+            
     def cadastrar_conta(self):
-        self.registrarConta.setText('Conta Aberta com sucesso!!!\nAgência = {}\nConta = {}\nValor = R$ {},00'
+        self.registrarConta.setText('Conta Aberta com sucesso!!!\nAgência = {}\nConta = {}\nSaldo = R$ {},00'
         .format(self.agencia.text(), self.conta.text(), self.valorDepInicial_Qline.text()))
 
     def depositar(self):
@@ -103,12 +107,15 @@ class Mainwindow(QMainWindow):
         posterior=self.valor_Qline.text()
         dep=int(inicial)+int(posterior)
         self.valor_Qlabel.setText('Saldo = R$ {},00'.format(dep))
-    
+        self.lista.append(dep)
+        
     def sacar(self):
-        inicial=self.valorDepInicial_Qline.text()
-        posterior=self.sacar_Qline.text()
-        sacar=(int(inicial)-int(posterior))-5
-        self.sacar_Qlabel.setText('saldo  = R$ {},00'.format(sacar))
+        sacar=self.sacar_Qline.text()
+        saldo=(sum(self.lista)-int(sacar))-5
+        if saldo>=0:
+            self.sacar_Qlabel.setText('saldo  = R$ {},00'.format(saldo))
+        else:
+            self.sacar_Qlabel.setText('Saldo insuficiente!!\nFavor entrar em contato com seu gerente para uma possível liberação de limite de conta')
         
 app = QApplication(sys.argv)
 w = Mainwindow()
