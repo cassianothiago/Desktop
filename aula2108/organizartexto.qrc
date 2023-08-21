@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="organizar">
+    <file>Pasta2.jpg</file>
+    <file>pasta3.png</file>
+    <file>pasta.png</file>
+  </qresource>
+</RCC>
