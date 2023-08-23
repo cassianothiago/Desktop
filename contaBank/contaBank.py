@@ -70,7 +70,7 @@ class Mainwindow(QMainWindow):
         pagina.addRow(self.pergunta)
         pagina.addRow(self.depositoS)
         pagina.addRow(self.depositoN)
-        pagina.addRow('valor que deseja depositar = ',self.valorDepInicial_Qline)
+        pagina.addRow('valor que deseja depositar\saldo = ',self.totaldep)
         pagina.addRow(self.abrirContaButton)
         pagina.addRow(self.registrarConta)
         pagina.addRow('Valor do deposito = ',self.valor_Qline)
@@ -99,6 +99,7 @@ class Mainwindow(QMainWindow):
         self.registrarConta.setText('Conta Aberta com sucesso!!!\nAgência = {}\nConta = {}\nSaldo = R$ {},00'
         .format(self.agencia.text(), self.conta.text(), self.totaldep.text()))
         self.abrirContaButton.deleteLater()
+        
         
     def depositar(self):
         self.saldo=int(self.valor_Qline.text())+int(self.totaldep.text())
