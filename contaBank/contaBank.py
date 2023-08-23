@@ -7,7 +7,6 @@ QCheckBox,QFormLayout,QWidget)
 class Mainwindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.lista=[]#saldo da conta
         
         ##titulo da janela##
         self.setWindowTitle('Seu Banco')
