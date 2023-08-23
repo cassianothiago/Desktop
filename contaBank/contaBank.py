@@ -28,7 +28,9 @@ class Mainwindow(QMainWindow):
         
         ##linha para digitar o valor do dep inicial##
         self.valorDepInicial_Qline=QLineEdit(self)
-        self.totaldep=self.valorDepInicial_Qline.text()
+        self.totaldep=self.valorDepInicial_Qline
+        
+        
         
         ##label para mostrar o valor digitado 
         self.valorDepInicial_Qlabel=QLabel()
@@ -85,35 +87,32 @@ class Mainwindow(QMainWindow):
     def state(self,s):#se tiver dep inicial#
         if s == 2:
             self.depositoN.deleteLater() 
-            valor=self.valorDepInicial_Qline.text()
-            dep=int(valor)
-            self.lista.append(dep)
-            self.valorDepInicial_Qlabel=valor
+            self.totaldep.text()
             
             
     def state2(self, s):#se não tiver dep inicial#
         if s == 2:
             self.depositoS.deleteLater()
-            self.valorDepInicial_Qline.setText('0')
-            self.valorDepInicial_Qlabel.setText('R$ 0,00')
-            self.lista.append(0)
+            self.totaldep.setText('0')
             
     def cadastrar_conta(self):
         self.registrarConta.setText('Conta Aberta com sucesso!!!\nAgência = {}\nConta = {}\nSaldo = R$ {},00'
-        .format(self.agencia.text(), self.conta.text(), self.valorDepInicial_Qline.text()))
-
+        .format(self.agencia.text(), self.conta.text(), self.totaldep.text()))
+        self.abrirContaButton.deleteLater()
+        
     def depositar(self):
-        inicial=self.valorDepInicial_Qline.text()
-        posterior=self.valor_Qline.text()
-        dep=int(inicial)+int(posterior)
-        self.valor_Qlabel.setText('Saldo = R$ {},00'.format(dep))
-        self.lista.append(dep)
+        self.saldo=int(self.valor_Qline.text())+int(self.totaldep.text())
+        self.saldostr=str(self.saldo)
+        self.valor_Qlabel.setText('Saldo = R$ {},00'.format(self.saldo))
+        self.totaldep.setText(self.saldostr)
         
     def sacar(self):
-        sacar=self.sacar_Qline.text()
-        saldo=(sum(self.lista)-int(sacar))-5
-        if saldo>=0:
-            self.sacar_Qlabel.setText('saldo  = R$ {},00'.format(saldo))
+        self.retirar=int(self.totaldep.text())-int(self.sacar_Qline.text())-5
+        self.retirarstr=str(self.retirar)
+        
+        if self.retirar>=0:
+            self.sacar_Qlabel.setText('saldo  = R$ {},00'.format(self.retirar))
+            self.totaldep.setText(self.retirarstr)
         else:
             self.sacar_Qlabel.setText('Saldo insuficiente!!\nFavor entrar em contato com seu gerente para uma possível liberação de limite de conta')
         
