@@ -1,7 +1,6 @@
 
 from PySide6.QtCore import (QSize)
-import sys
-from PySide6.QtWidgets import (QApplication, QMainWindow, QLabel, QPushButton, QLabel, QLineEdit,
+from PySide6.QtWidgets import (QMainWindow, QLabel, QPushButton, QLabel, QLineEdit,
 QCheckBox,QFormLayout,QWidget)
 
 class Mainwindow(QMainWindow):
@@ -116,7 +115,3 @@ class Mainwindow(QMainWindow):
         else:
             self.sacar_Qlabel.setText('Saldo insuficiente!!\nFavor entrar em contato com seu gerente para uma possível liberação de limite de conta')
         
-app = QApplication(sys.argv)
-w = Mainwindow()
-w.show()
-app.exec()
