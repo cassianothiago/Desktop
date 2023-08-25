@@ -1,4 +1,4 @@
-from contaBank import*
+from janela import*
 from PySide6.QtWidgets import QApplication
 import sys
 
