@@ -82,6 +82,16 @@ class Mainwindow(QMainWindow):
         self.button_deletar.setText('clear')
         self.button_deletar.clicked.connect(self.deletar)
         
+        self.button_dividir=QPushButton(self)
+        self.button_dividir.setGeometry(130,360,70,60)
+        self.button_dividir.setText('/')
+        self.button_dividir.clicked.connect(self.dividir)
+        
+        self.button_multiplicar=QPushButton(self)
+        self.button_multiplicar.setGeometry(200,360,70,60)
+        self.button_multiplicar.setText('*')
+        self.button_deletar.clicked.connect(self.multiplicar)
+        
         
         
     def numero_1(self):
@@ -122,3 +132,9 @@ class Mainwindow(QMainWindow):
         
     def deletar(self):
         self.input_janela.setText('clear')
+    
+    def dividir(self):
+        self.input_janela.setText('/')
+    
+    def multiplicar(self):
+        self.input_janela.setText('*')

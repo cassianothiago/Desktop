@@ -1,6 +1,6 @@
 class Numeros:
-    def numero_1(self):
-        return 1
+    def numero_1(self,numero):
+        return numero
         
     def numero_2(self):
         self.input_janela.setText('2')
