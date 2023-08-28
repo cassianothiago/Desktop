@@ -94,7 +94,7 @@ class Mainwindow(QMainWindow):
         
         if funcionario>=0 and funcionario<10:
             imposto=renda*(0.16)
-            imposto_str=int(imposto)
+            imposto_str=str(imposto)
         
         elif funcionario>=10:
             imposto=renda*(0.14)
