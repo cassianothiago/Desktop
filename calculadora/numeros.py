@@ -1,5 +1,5 @@
 class Numeros:
-    def numero_1(numero1,numero2):
+    def numero(numero1,numero2):
         valor=int(numero1)+int(numero2)
         return valor
         

@@ -12,9 +12,8 @@ class Mainwindow(QMainWindow):
         self.setFixedSize(QSize(300,450))
         self.setStyleSheet('background-color: gray;')
         
-        self.input_janela=QLabel(self)
+        self.input_janela=QLineEdit(self)
         self.input_janela.setGeometry(60,30,200,60)
-        self.input_janela.setText('numeros')
         self.input_janela.setStyleSheet('border: 1px solid black;')
         
         self.button_1=QPushButton(self)
@@ -96,6 +95,7 @@ class Mainwindow(QMainWindow):
         
     def numero_1(self):
         self.input_janela.setText('1')
+        
         
     def numero_2(self):
         self.input_janela.setText('2')
