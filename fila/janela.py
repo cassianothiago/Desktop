@@ -2,7 +2,7 @@ from PySide6.QtCore import (QSize)
 from PySide6.QtWidgets import (QMainWindow, QLabel, QPushButton, QLabel, QLineEdit,
 QCheckBox,QFormLayout,QWidget,QApplication)
 import sys
-from cadastro import*
+
 class Mainwindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -43,6 +43,8 @@ class Mainwindow(QMainWindow):
         self.no_pcd=QCheckBox('não',self)
         self.is_pcd.setGeometry(3,270,400,30)
         self.no_pcd.setGeometry(50,270,400,30)
+        self.is_pcd.stateChanged.connect(self.no_pcd.deleteLater)
+        self.no_pcd.stateChanged.connect(self.is_pcd.deleteLater)
         
         
         
