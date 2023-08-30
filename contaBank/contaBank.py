@@ -2,6 +2,7 @@
 from PySide6.QtCore import (QSize)
 from PySide6.QtWidgets import (QMainWindow, QLabel, QPushButton, QLabel, QLineEdit,
 QCheckBox,QFormLayout,QWidget)
+from saldo import*
 
 class Mainwindow(QMainWindow):
     def __init__(self):
