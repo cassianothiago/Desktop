@@ -99,11 +99,13 @@ class Mainwindow(QMainWindow):
         self.abrirContaButton.deleteLater()
         
         
+        
     def depositar(self):
         self.saldo=int(self.valor_Qline.text())+int(self.totaldep.text())
         self.saldostr=str(self.saldo)
         self.valor_Qlabel.setText('Saldo = R$ {},00'.format(self.saldo))
         self.totaldep.setText(self.saldostr)
+        
         
     def sacar(self):
         self.retirar=int(self.totaldep.text())-int(self.sacar_Qline.text())-5
