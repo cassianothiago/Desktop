@@ -4,24 +4,21 @@ class Cliente:
         self.email=email
         self.cpf=cpf
         self.senha=senha
-        
-    def banco_dados(self,lista_cliente):
-        lista_cliente=[]
-        lista_cliente.append(self.nome,self.email,self.cpf,self.senha)
-        return lista_cliente
     
-    def escolher_plano(self,plano:str,erro:str):
-        self.plano=plano
-        self.lista_plano=['basic','premium']
-        if self.plano in self.lista_plano:
+    def escolher_plano(self,plano:str):
+        lista_plano=['basic','premium']
+        if plano in lista_plano:
             return plano
-        else:
-            erro=('PLANO ESCOLHIDO INVALIDO')
-            return erro
+        else: 
+            plano=str('Plano inexistente')
+            return plano
         
     def mudar_plano(self,novo_plano:str):
-        if novo_plano in self.lista_plano:
-            self.plano=novo_plano
+        lista_plano=['basic','premium']
+        if novo_plano in lista_plano:
+            return novo_plano
+        else:
+            novo_plano=str('Plano inexistente')
             return novo_plano
             
 '''nome=input('digite seu nome: ')

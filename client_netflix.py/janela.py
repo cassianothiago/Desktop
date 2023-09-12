@@ -41,13 +41,18 @@ class Mainwindow(QMainWindow):
         self.button_cadastrar=QPushButton(self)
         self.button_cadastrar.setText('CADASTRAR !!')
         self.button_cadastrar.setGeometry(10,150,320,30)
-        self.button_cadastrar.clicked.connect(self.cadastro)
+        self.button_cadastrar.clicked.connect(self.cadastrar)
         
         
         self.imagem_cadastro=QLabel(self)
         self.imagem_cadastro.setPixmap(QPixmap('imagem_cadastro.png'))
         self.imagem_cadastro.setGeometry(350,30,320,150)
         
-    def cadastro(self):
-        self.dados_cliente=QLabel(self)
-        self.dados_cliente.setText((self.nome.text(),self.email.text(),self.cpf.text(),self.senha.text()))
+    def cadastrar(self):
+        cliente=Cliente('a','b','c','d','basic')
+        self.mostrar_cadastro=QLabel(self)
+        self.mostrar_cadastro.setText(cliente.nome)
+        self.mostrar_cadastro.setGeometry((10,150,320,300))
+       
+    
+            
