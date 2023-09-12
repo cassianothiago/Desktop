@@ -1,9 +1,9 @@
 from PySide6.QtCore import (QSize)
 from PySide6.QtWidgets import (QMainWindow, QLabel, QPushButton, QLabel, QLineEdit,
-QCheckBox,QFormLayout,QWidget)
-import sys
+QCheckBox,QWidget,)
+from PySide6.QtGui import QPixmap
 from cliente import*
-from botão import*
+
 
 
 class Mainwindow(QMainWindow):
@@ -13,18 +13,41 @@ class Mainwindow(QMainWindow):
         self.setWindowTitle('Cadastro de Cliente')
         self.setFixedSize(QSize(700,500))
         
+        self.welcome_cliente=QLabel(self)
+        self.welcome_cliente.setText('Bem vindo ao cadastro de cliente')
+        self.welcome_cliente.setGeometry(10,1,320,20)
+        
         self.input_nome_cliente=QLineEdit(self)
-        self.input_nome_cliente.setText('nome: ')
+        self.input_nome_cliente.setText('Nome: ')
         self.input_nome_cliente.setGeometry(10,30,320,30)
-        nome=self.input_nome_cliente
-        self.button_nome=QPushButton(self)
-        self.button_nome.setText('confirma!')
-        self.button_nome.setGeometry(330,30,80,30)
-        clicarnome=Button()
-        self.button_nome.clicked.connect(clicarnome.clicar_nome(nome))
+        self.nome=self.input_nome_cliente
+        
         
         self.input_email_cliente=QLineEdit(self)
-        self.input_email_cliente.setText('email: ')
+        self.input_email_cliente.setText('Email: ')
         self.input_email_cliente.setGeometry(10,60,320,30)
-        email=self.input_email_cliente
+        self.email=self.input_email_cliente
         
+        self.input_cpf_cliente=QLineEdit(self)
+        self.input_cpf_cliente.setText('CPF: ')
+        self.input_cpf_cliente.setGeometry(10,90,320,30)
+        self.cpf=self.input_cpf_cliente
+        
+        self.input_senha_cliente=QLineEdit(self)
+        self.input_senha_cliente.setText('Senha: ')
+        self.input_senha_cliente.setGeometry(10,120,320,30)
+        self.senha=self.input_cpf_cliente
+        
+        self.button_cadastrar=QPushButton(self)
+        self.button_cadastrar.setText('CADASTRAR !!')
+        self.button_cadastrar.setGeometry(10,150,320,30)
+        self.button_cadastrar.clicked.connect(self.cadastro)
+        
+        
+        self.imagem_cadastro=QLabel(self)
+        self.imagem_cadastro.setPixmap(QPixmap('imagem_cadastro.png'))
+        self.imagem_cadastro.setGeometry(350,30,320,150)
+        
+    def cadastro(self):
+        self.dados_cliente=QLabel(self)
+        self.dados_cliente.setText((self.nome.text(),self.email.text(),self.cpf.text(),self.senha.text()))
