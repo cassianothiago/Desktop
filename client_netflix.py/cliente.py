@@ -10,7 +10,7 @@ class Cliente:
         if plano in lista_plano:
             return plano
         else: 
-            plano=str('Plano inexistente')
+            plano=('Plano inexistente')
             return plano
         
     def mudar_plano(self,novo_plano:str):
@@ -21,15 +21,14 @@ class Cliente:
             novo_plano=str('Plano inexistente')
             return novo_plano
             
-nome=input('digite seu nome: ')
+'''nome=input('digite seu nome: ')
 email=input('digite seu email: ')
 cpf=input('digite seu cpf: ')
 senha=input('digite sua senha: ')
 cliente=Cliente(nome,email,cpf,senha)
+seu_plano=input('digite seu plano: ')
+cliente.escolher_plano(seu_plano)
 print(nome)
 print(email)
 print(cpf)
-
-seu_plano=input('digite seu plano: ')
-cliente.escolher_plano(seu_plano)
-print(seu_plano)
+print(seu_plano)'''
