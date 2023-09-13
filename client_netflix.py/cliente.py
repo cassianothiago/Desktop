@@ -21,7 +21,7 @@ class Cliente:
             novo_plano=str('Plano inexistente')
             return novo_plano
             
-'''nome=input('digite seu nome: ')
+nome=input('digite seu nome: ')
 email=input('digite seu email: ')
 cpf=input('digite seu cpf: ')
 senha=input('digite sua senha: ')
@@ -30,9 +30,6 @@ print(nome)
 print(email)
 print(cpf)
 
-
-plano=input('digite seu plano(basic ou premium): ')
-cliente.escolher_plano(plano)'''
-
-        
-        
+seu_plano=input('digite seu plano: ')
+cliente.escolher_plano(seu_plano)
+print(seu_plano)
