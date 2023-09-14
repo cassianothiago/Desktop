@@ -8,7 +8,7 @@ class Mainwindow(QMainWindow):
         super().__init__()
         
         self.setWindowTitle('CALCULADORA')
-        self.setFixedSize(QSize(300,450))
+        self.setFixedSize(QSize(300,445))
         self.setStyleSheet('background-color: grey;')
         
         self.resultado_janela=QLabel(self)
@@ -17,96 +17,96 @@ class Mainwindow(QMainWindow):
         self.resultado_janela.setStyleSheet('background-color: green;')
         
         self.button_clear=QPushButton(self)
-        self.button_clear.setGeometry(50,90,70,60)
+        self.button_clear.setGeometry(45,90,70,60)
         self.button_clear.setText('clear')
         self.button_clear.setStyleSheet('background-color: orange;')
         
         self.button_menos=QPushButton(self)
-        self.button_menos.setGeometry(120,90,70,60)
+        self.button_menos.setGeometry(115,90,70,60)
         self.button_menos.setText('-')
         self.button_menos.setStyleSheet('background-color: blue;')
     
         
         self.button_mais=QPushButton(self)
-        self.button_mais.setGeometry(190,90,70,60)
+        self.button_mais.setGeometry(185,90,70,60)
         self.button_mais.setText('+')
         self.button_mais.setStyleSheet('background-color: blue;')
 
         
         self.button_7=QPushButton(self)
-        self.button_7.setGeometry(50,150,70,60)
+        self.button_7.setGeometry(45,150,70,60)
         self.button_7.setText('7')
         self.button_7.setStyleSheet('background-color: green;')
         
         self.button_8=QPushButton(self)
-        self.button_8.setGeometry(120,150,70,60)
+        self.button_8.setGeometry(115,150,70,60)
         self.button_8.setText('8')
         self.button_8.setStyleSheet('background-color: green;')
         
         self.button_9=QPushButton(self)
-        self.button_9.setGeometry(190,150,70,60)
+        self.button_9.setGeometry(185,150,70,60)
         self.button_9.setText('9')
         self.button_9.setStyleSheet('background-color: green;')
         
         self.button_4=QPushButton(self)
-        self.button_4.setGeometry(50,210,70,60)
+        self.button_4.setGeometry(45,210,70,60)
         self.button_4.setText('4')
         self.button_4.setStyleSheet('background-color: green;')
         
         self.button_5=QPushButton(self)
-        self.button_5.setGeometry(120,210,70,60)
+        self.button_5.setGeometry(115,210,70,60)
         self.button_5.setText('5')
         self.button_5.setStyleSheet('background-color: green;')
         
         
         self.button_6=QPushButton(self)
-        self.button_6.setGeometry(190,210,70,60)
+        self.button_6.setGeometry(185,210,70,60)
         self.button_6.setText('6')
         self.button_6.setStyleSheet('background-color: green;')
         
         self.button_1=QPushButton(self)
-        self.button_1.setGeometry(50,270,70,60)
+        self.button_1.setGeometry(45,270,70,60)
         self.button_1.setText('1')
         self.button_1.setStyleSheet('background-color: green;')
         
         self.button_2=QPushButton(self)
-        self.button_2.setGeometry(120,270,70,60)
+        self.button_2.setGeometry(115,270,70,60)
         self.button_2.setText('2')
         self.button_2.setStyleSheet('background-color: green;')
         
         
         self.button_3=QPushButton(self)
-        self.button_3.setGeometry(190,270,70,60)
+        self.button_3.setGeometry(185,270,70,60)
         self.button_3.setText('3')
         self.button_3.setStyleSheet('background-color: green;')
         
         self.button_zero=QPushButton(self)
-        self.button_zero.setGeometry(50,330,70,60)
+        self.button_zero.setGeometry(45,330,70,60)
         self.button_zero.setText('0')
         self.button_zero.setStyleSheet('background-color: green;')
         
         self.button_dividir=QPushButton(self)
-        self.button_dividir.setGeometry(120,330,70,60)
+        self.button_dividir.setGeometry(115,330,70,60)
         self.button_dividir.setText('/')
         self.button_dividir.setStyleSheet('background-color: blue;')
        
         self.button_multiplicar=QPushButton(self)
-        self.button_multiplicar.setGeometry(190,330,70,60)
+        self.button_multiplicar.setGeometry(185,330,70,60)
         self.button_multiplicar.setText('*')
         self.button_multiplicar.setStyleSheet('background-color: blue;')
         
         self.button_iqual=QPushButton(self)
-        self.button_iqual.setGeometry(50,390,70,60)
+        self.button_iqual.setGeometry(45,390,70,60)
         self.button_iqual.setText('=')
         self.button_iqual.setStyleSheet('background-color: orange;')
         
         self.button_ponto=QPushButton(self)
-        self.button_ponto.setGeometry(120,390,70,60)
+        self.button_ponto.setGeometry(115,390,70,60)
         self.button_ponto.setText('.')
         self.button_ponto.setStyleSheet('background-color: blue;')
         
         self.button_porcentagem=QPushButton(self)
-        self.button_porcentagem.setGeometry(190,390,70,60)
+        self.button_porcentagem.setGeometry(185,390,70,60)
         self.button_porcentagem.setText('%')
         self.button_porcentagem.setStyleSheet('background-color: blue;')
     
