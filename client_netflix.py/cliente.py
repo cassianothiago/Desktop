@@ -6,9 +6,10 @@ class Cliente:
         self.senha=senha
     
     def escolher_plano(self,plano:str):
+        self.plano=plano
         lista_plano=['basic','premium']
         if self.plano in lista_plano:
-             return self.plano
+            return self.plano
         else: 
             self.plano = 'Plano inexistente'
             return self.plano
