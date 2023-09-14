@@ -8,6 +8,6 @@ class Calculo:
     
 calc=Calculo()
 calc.calcular('10/8')
-
+type(calc)
         
     
