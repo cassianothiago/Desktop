@@ -3,11 +3,13 @@ from PySide6.QtWidgets import (QMainWindow, QLabel, QPushButton, QLabel,
 QLineEdit)
 from PySide6.QtGui import QPixmap
 from calcular import*
+from colorama import(init,Fore,Back)
 
 class Mainwindow(QMainWindow):
     def __init__(self):
         super().__init__()
         
+        init()
         self.setWindowTitle('CALCULADORA')
         self.setFixedSize(QSize(300,449))
         self.setStyleSheet('background-color: white;')
